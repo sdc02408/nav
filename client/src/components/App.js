@@ -24,7 +24,7 @@ function App() {
           of them to render at a time
         */}
         <NavBar />
-        <div style={{paddingTop: '69px', minHeight: 'calc(100vh -80px'}}>
+        <div style={{paddingTop: '1px', minHeight: 'calc(100vh -80px'}}>
         <Switch>
           <Route exact path="/" component={Auth(LandingPage, null,true )} />
           <Route exact path="/login" component={Auth(LoginPage, false)} />

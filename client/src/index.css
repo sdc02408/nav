@@ -35,5 +35,11 @@ input.error {
 .input-feedback {
   color: red;
   height: 5px;
-  margin-top: -12px;
+  margin-top: 5px;
 }
+
+.common_btn{
+  color:white!important;
+  background-color:rgb(29, 161, 242)!important;
+}
+

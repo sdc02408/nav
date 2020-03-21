@@ -7,15 +7,15 @@ import './Sections/Navbar.css'
 
 function NavBar () {
   const [visible, setVisible] = useState(false)
-  
+
   const showDrawer = () => {
     setVisible(true)
   }
-  
+
   const onClose = () => {
     setVisible(false)
   }
-  
+
   return (
     <nav className="menu" style={{ position: 'fixed', zIndex: 5, width: '100%', margin:'0 auto' }}>
       <div className="menu__logo">
@@ -36,7 +36,7 @@ function NavBar () {
           <BarsOutlined type="align-right"/>
         </Button>
         <Drawer
-          title="Basic Drawer"
+          title="Logo"
           placement="right"
           className="menu_drawer"
           closable={false}

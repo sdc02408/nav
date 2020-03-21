@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+.common_btn{
+  color:red;
+  background-color: red;
+}

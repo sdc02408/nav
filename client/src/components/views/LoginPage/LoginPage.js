@@ -6,8 +6,9 @@ import {withRouter } from 'react-router-dom';
 import {Formik} from 'formik'
 import * as Yup from 'yup';
 import {Form,Input,Button, Checkbox, Typography} from 'antd'
-import {icons} from '@ant-design/icons';
-
+import {UserOutlined, LockOutlined} from '@ant-design/icons';
+import './Sections/LoginPage.css'
+import '../../../index.css'
 
 
 const { Title } = Typography;
@@ -15,16 +16,16 @@ const { Title } = Typography;
 function LoginPage(props) {
   const dispatch = useDispatch();
   const rememberMeChecked = localStorage.getItem("rememberMe") ? true : false;
-  
+
   const [formErrorMessage, setFormErrorMessage] = useState('')
   const [rememberMe, setRememberMe] = useState(rememberMeChecked)
-  
+
   const handleRememberMe = () => {
     setRememberMe(!rememberMe)
   };
-  
+
   const initialEmail = localStorage.getItem("rememberMe") ? localStorage.getItem("rememberMe") : '';
-  
+
   return (
     <Formik
       initialValues={{
@@ -45,7 +46,7 @@ function LoginPage(props) {
             email: values.email,
             password: values.password
           };
-          
+
           dispatch(loginUser(dataToSubmit))
           .then(response => {
             if (response.payload.loginSuccess) {
@@ -84,14 +85,14 @@ function LoginPage(props) {
         } = props;
         return (
           <div className="app">
-            
-            <Title level={4}>Log In</Title>
+
+            <Title level={2}>Log In</Title>
             <form onSubmit={handleSubmit} style={{ width: '350px' }}>
-              
+
               <Form.Item required>
                 <Input
                   id="email"
-                  prefix={<icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                  prefix={<UserOutlined type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
                   placeholder="Enter your email"
                   type="email"
                   value={values.email}
@@ -105,11 +106,11 @@ function LoginPage(props) {
                   <div className="input-feedback">{errors.email}</div>
                 )}
               </Form.Item>
-              
+
               <Form.Item required>
                 <Input
                   id="password"
-                  prefix={<icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                  prefix={<LockOutlined type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                   placeholder="Enter your password"
                   type="password"
                   value={values.password}
@@ -123,18 +124,18 @@ function LoginPage(props) {
                   <div className="input-feedback">{errors.password}</div>
                 )}
               </Form.Item>
-              
+
               {formErrorMessage && (
                 <label ><p style={{ color: '#ff0000bf', fontSize: '0.7rem', border: '1px solid', padding: '1rem', borderRadius: '10px' }}>{formErrorMessage}</p></label>
               )}
-              
+
               <Form.Item>
                 <Checkbox id="rememberMe" onChange={handleRememberMe} checked={rememberMe} >Remember me</Checkbox>
                 <a className="login-form-forgot" href="/reset_user" style={{ float: 'right' }}>
                   forgot password
                 </a>
                 <div>
-                  <Button type="primary" htmlType="submit" className="login-form-button" style={{ minWidth: '100%' }} disabled={isSubmitting} onSubmit={handleSubmit}>
+                  <Button type="default" htmlType="submit" className="login-form-button common_btn" style={{minWidth: '100%' }} disabled={isSubmitting} onSubmit={handleSubmit}>
                     Log in
                   </Button>
                 </div>

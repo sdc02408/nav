@@ -11,12 +11,16 @@
 .menu__logo {
   width: 150px;
   float: left;
+
+
 }
 
 .menu__logo a {
   display: inline-block;
   font-size: 20px;
   padding: 19px 20px;
+  color:rgb(29, 161, 242);
+
 }
 
 .menu__container .ant-menu-item {
@@ -50,7 +54,7 @@
   padding: 6px;
   margin-top: 8px;
   display: none !important; /* use of important to overwrite ant-btn */
-  background: #3e91f7;
+  background: rgb(29, 161, 242);
 }
 
 .menu_drawer .ant-drawer-body {

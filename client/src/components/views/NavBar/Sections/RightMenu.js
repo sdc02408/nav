@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 
 function RightMenu(props) {
   const user = useSelector(state => state.user)
-  
+
   const logoutHandler = () => {
     axios.get('/api/users/logout')
     .then(response => {
@@ -19,7 +19,7 @@ function RightMenu(props) {
       }
     });
   };
-  
+
   if (user.userData && !user.userData.isAuth) {
     return (
       <Menu mode={props.mode}>
@@ -29,10 +29,10 @@ function RightMenu(props) {
         <Menu.Item key="favorite">
           <a href="/favorite">게시판</a>
         </Menu.Item>
-        <Menu.Item key="mail">
+        <Menu.Item key="signin">
           <a href="/login">로그인</a>
         </Menu.Item>
-        <Menu.Item key="app">
+        <Menu.Item key="signup">
           <a href="/register">회원가입</a>
         </Menu.Item>
       </Menu>
